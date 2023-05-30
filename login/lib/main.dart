@@ -78,6 +78,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
     User? user;
     try {
       user = _users.firstWhere((user) => user.username == username);
+      
     } catch (e) {
       user = null;
     }
