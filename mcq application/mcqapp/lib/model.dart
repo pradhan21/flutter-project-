@@ -59,4 +59,4 @@ final questions={
       const Option(text:'The Flash' ,isCorrect: false),
     ]
   )
-}
+};
