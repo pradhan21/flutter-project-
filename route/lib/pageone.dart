@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:route/pagetwo.dart';
+
+import 'nameroutes.dart';
 
 class PageOne extends StatefulWidget{
   static const String id ="PageOne";
@@ -22,10 +23,9 @@ class _PageOneState extends State<PageOne>{
           mainAxisAlignment: MainAxisAlignment.center,
           children:[
            ElevatedButton(onPressed:(){
-            Navigator.pushNamed(context, Pagetwo.id,
-            arguments:{
-              'name': 'Nirdesh'
-            });
+            Navigator.pushNamed(context, RouteName.second_route, arguments: {
+              'name': 'nirdesh'
+           });
            }, 
            child: Text("Second Page"))
           ],

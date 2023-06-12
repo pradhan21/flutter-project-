@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:route/pageone.dart';
+
+import 'nameroutes.dart';
 
 class Pagetwo extends StatefulWidget{
-  Pagetwo({Key?key, required this.title}):super(key:key);
-  final String title;
+  dynamic data;
+   Pagetwo(this.data);
   static const String id ="Pagetwo";
   @override
   State<Pagetwo> createState() => _PagetwoState();
@@ -11,20 +12,18 @@ class Pagetwo extends StatefulWidget{
 class _PagetwoState extends State<Pagetwo>{
   @override
   Widget build(BuildContext context){
-    final arguments = ModalRoute.of(context)?.settings.arguments as Map ;
-    print("Pass Value $arguments");
+    print(widget.data['name']);
     return Scaffold(
+      
       appBar: AppBar(
-        title: Text(widget.title),
+        
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children:[
            ElevatedButton(onPressed:(){
-            Navigator.pushNamed(context, PageOne.id, arguments: {
-              'name': 'Pradhan'
-            });
+            Navigator.pushNamed(context, RouteName.home_route);
            }, 
            child: Text("First Page"))
           ],

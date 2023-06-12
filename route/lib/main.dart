@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:route/pageone.dart';
-import 'package:route/pagetwo.dart';
+import 'package:route/routes.dart';
+import 'nameroutes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute:PageOne.id,
-      routes:{
-        PageOne.id: (context) => PageOne(title:"FirstPage"),
-        Pagetwo.id:(context) => Pagetwo(title:"SecondPage"),
-      },
+      initialRoute:RouteName.home_route,
+      onGenerateRoute: Routes.generateRoute,
     );
   }
 }
