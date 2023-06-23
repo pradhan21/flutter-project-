@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:listtile/table.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         
@@ -63,6 +65,47 @@ class _MyHomePageState extends State<MyHomePage> {
           trailing: Icon(Icons.more_vert),
         ),
       ],
-    ),);
+    ),
+    drawer: Drawer(
+    child: ListView(
+      padding: EdgeInsets.zero,
+      children: <Widget>[
+        DrawerHeader(
+          decoration: BoxDecoration(
+            color: Colors.blue,
+          ),
+          child: Text(
+            'Drawer Header',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+            ),
+          ),
+        ),
+      ListTile(
+            leading: Icon(Icons.message),
+            title: const Text('Messages'),
+            onTap: () {
+              Navigator.pop(context); // Pop the current screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TableDataScreen()),
+              );
+            },
+          ),
+        ListTile(
+          leading: Icon(Icons.account_circle),
+          title: Text('Profile'),
+        ),
+        ListTile(
+          leading: Icon(Icons.settings),
+          title: Text('Settings'),
+        ),
+      ],
+    ),
+  ),
+ 
+      
+  );
   }
 }
